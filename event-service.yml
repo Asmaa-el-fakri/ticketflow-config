@@ -1,0 +1,6 @@
+server:
+  port: 8082
+
+ticketflow:
+  events:
+    max-page-size: 50
