@@ -1,6 +1,10 @@
 server:
   port: 8080
 
+ticketflow:
+  security:
+    allowed-origins: http://localhost:4200
+
 spring:
   cloud:
     gateway:
@@ -9,19 +13,6 @@ spring:
           discovery:
             locator:
               enabled: false
-          globalcors:
-            cors-configurations:
-              '[/**]':
-                allowed-origins:
-                  - "http://localhost:4200"
-                allowed-methods:
-                  - GET
-                  - POST
-                  - PUT
-                  - DELETE
-                  - OPTIONS
-                allowed-headers: "*"
-                max-age: 3600
           routes:
             - id: customer-service
               uri: lb://customer-service
