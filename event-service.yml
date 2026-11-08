@@ -6,8 +6,13 @@ ticketflow:
     max-page-size: 50
 
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8180/realms/ticketflow
+  datasource:
+    url: jdbc:postgresql://localhost:5432/event_db
+    username: ticketflow
+    # Le mot de passe n'est volontairement PAS ici : variable d'environnement SPRING_DATASOURCE_PASSWORD
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
