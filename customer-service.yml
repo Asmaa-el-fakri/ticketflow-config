@@ -2,17 +2,13 @@ server:
   port: 8081
 
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8180/realms/ticketflow
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,refresh
-
-ticketflow:
-  message: "Bienvenue dans TicketFlow - configuration v2"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customer_db
+    username: ticketflow
+    # Mot de passe : variable d'environnement SPRING_DATASOURCE_PASSWORD
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
