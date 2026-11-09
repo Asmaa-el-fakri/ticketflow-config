@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/payment_db
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://keycloak:8180/realms/ticketflow/protocol/openid-connect/certs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://host.docker.internal:8761/eureka/
+  instance:
+    hostname: localhost
