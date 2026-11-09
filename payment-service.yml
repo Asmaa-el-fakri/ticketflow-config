@@ -12,3 +12,6 @@ spring:
       ddl-auto: validate
   flyway:
     enabled: true
+ticketflow:
+  payments:
+    simulation-enabled: true
