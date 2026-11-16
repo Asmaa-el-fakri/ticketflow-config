@@ -13,16 +13,20 @@ spring:
   flyway:
     enabled: true
   kafka:
-    bootstrap-servers: localhost:9094
+    bootstrap-servers: localhost:9092
     producer:
+      acks: all
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JacksonJsonSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties:
-        "[spring.json.add.type.headers]": false
         "[max.block.ms]": 5000
 
 ticketflow:
   payments:
     simulation-enabled: true
-  events:
-    payments-topic: payments.events
+  kafka:
+    topics:
+      payment-succeeded: ticketflow.payment.succeeded
+      payment-failed: ticketflow.payment.failed
+      booking-cancelled: ticketflow.booking.cancelled
+      dlt: ticketflow.notification.dlt
