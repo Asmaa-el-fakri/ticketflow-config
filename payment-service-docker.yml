@@ -6,6 +6,8 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://keycloak:8180/realms/ticketflow/protocol/openid-connect/certs
+  kafka:
+    bootstrap-servers: kafka:19092
 
 eureka:
   client:
